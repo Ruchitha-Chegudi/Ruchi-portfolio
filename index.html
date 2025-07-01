@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ruchitha Chegudi | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    :root {
+      --bg: #f2f6fc;
+      --fg: #1d1d1d;
+      --accent: #4361ee;
+      --btn: #22c55e;
+      --card: #eaf1ff;
+    }
+    .dark {
+      --bg: #111827;
+      --fg: #f9fafb;
+      --accent: #7aa2ff;
+      --btn: #22c55e;
+      --card: #1e293b;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Inter", sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      line-height: 1.75;
+      scroll-behavior: smooth;
+    }
+    /* ---------- HEADER ---------- */
+    header {
+      position: fixed;
+      top: 0; width: 100%;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      z-index: 1000;
+    }
+    .dark header { background: rgba(17,24,39,0.9); }
+    nav {
+      max-width: 1100px;
+      margin: auto;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo { font-weight: 700; font-size: 1.5rem; color: var(--accent); display: flex; align-items: center; gap: 0.5rem; }
+    nav ul { list-style: none; display: flex; gap: 1.5rem; }
+    nav a { text-decoration: none; color: var(--fg); font-weight: 600; position: relative; }
+    nav a::after { content: ""; position: absolute; left: 0; bottom: -4px; width: 0; height: 2px; background: var(--accent); transition: width 0.3s; }
+    nav a:hover::after, nav a.active::after { width: 100%; }
+    #theme-toggle, #menu-toggle { background: none; border: none; font-size: 1.3rem; color: var(--fg); cursor: pointer; }
+    #menu-toggle { display: none; }
+
+    /* ---------- MOBILE NAV ---------- */
+    .mobile-nav { display: none; flex-direction: column; background: var(--card); padding: 1rem 1.25rem; gap: 1rem; border-radius: 0.75rem; margin: 0.75rem; }
+    .mobile-nav a { color: var(--fg); font-weight: 600; }
+
+    /* ---------- SECTIONS ---------- */
+    section { padding: 130px 1.25rem 120px; max-width: 1100px; margin: auto; }
+    h2 { font-size: 2rem; margin-bottom: 1.25rem; color: var(--accent); }
+
+    /* ---------- HERO ---------- */
+    #hero { display: flex; flex-direction: column; align-items: center; text-align: center; min-height: 100vh; justify-content: center; }
+    #hero h1 { font-size: 3.1rem; }
+    #hero p { max-width: 640px; margin-top: 1rem; font-size: 1.2rem; }
+    .btn { background: var(--btn); color: #fff; padding: 0.85rem 1.7rem; border-radius: 0.6rem; font-weight: 600; display: inline-block; margin-top: 2rem; text-decoration: none; }
+    .btn:hover { filter: brightness(1.05); }
+
+    /* ---------- ABOUT ---------- */
+    .about-content { display: flex; gap: 2.5rem; align-items: center; flex-wrap: wrap; }
+    .about-content img { width: 320px; flex-shrink: 0; border-radius: 1rem; box-shadow: 0 4px 14px rgba(0,0,0,0.08); object-fit: cover; }
+    .about-content p { margin-bottom: 0.9rem; }
+
+    /* ---------- CARDS ---------- */
+    .card { background: var(--card); padding: 1.5rem; border-radius: 0.75rem; box-shadow: 0 2px 6px rgba(0,0,0,0.04); }
+
+    /* ---------- SKILLS ---------- */
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(240px,1fr)); gap: 1.5rem; }
+    .skills-list { list-style: none; display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 0.8rem; }
+    .skills-list li { background: var(--accent); color: #fff; padding: 0.4rem 0.85rem; border-radius: 0.5rem; font-size: 0.83rem; }
+
+    /* ---------- PROJECTS ---------- */
+    #projects .grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); gap: 2rem; }
+    .project-card { background: var(--card); padding: 1.5rem; border-radius: 0.75rem; box-shadow: 0 2px 6px rgba(0,0,0,0.05); display: flex; flex-direction: column; gap: 0.8rem; }
+    .project-card h3 { display: flex; align-items: center; gap: 0.5rem; font-size: 1.1rem; margin: 0; }
+
+    /* ---------- TIMELINE ---------- */
+    .timeline { border-left: 3px solid var(--accent); padding-left: 1.75rem; }
+    .timeline-item { position: relative; margin-bottom: 2rem; padding-left: 1.75rem; padding-right: 2.75rem;}
+    .timeline-item::before { content: ""; position: absolute; left: -0.75rem; top: 0.35rem; width: 0.9rem; height: 0.9rem; background: var(--accent); border-radius: 50%; }
+
+    /* ---------- CONTACT ---------- */
+    .contact-links { display: grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap: 1.25rem; margin-top: 2rem; }
+    .contact-links a { background: var(--card); padding: 0.9rem 1.1rem; border-radius: 0.6rem; text-decoration: none; color: var(--fg); font-weight: 600; display: flex; align-items: center; gap: 0.65rem; }
+    .contact-links i { color: var(--btn); font-size: 1.35rem; }
+
+    /* ---------- FOOTER ---------- */
+    footer { text-align: center; padding: 2.5rem 1rem; font-size: 0.9rem; }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 768px) {
+      nav ul { display: none; }
+      #menu-toggle { display: block; }
+      .about-content { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <!-- ===== HEADER ===== -->
+  <header>
+    <nav>
+      <span class="logo"> Ruchi!</span>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#achievements">Achievements</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+        <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
+        <button id="menu-toggle" aria-label="Menu"><i class="fas fa-bars"></i></button>
+      </div>
+    </nav>
+    <div class="mobile-nav" id="mobile-nav">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#education">Education</a>
+      <a href="#achievements">Achievements</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section id="hero">
+    <h1>Hi, I'm <span style="color:var(--accent);">Ruchitha Chegudi</span></h1>
+  <p>Data Analyst &amp; UI/UX Designer from Hyderabad, passionate about turning data and design into impactful solutions.</p>
+    <a href="#projects" class="btn"><i class="fas fa-rocket"></i> View My Work</a>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section id="about">
+    <h2><i class="fas fa-user"></i> About Me</h2>
+    <div class="about-content card">
+      <img src="rrruu.jpg" alt="Ruchitha Profile">
+      <div>
+        <p>Hi, I’m Ruchitha — a designer–developer hybrid who loves solving problems with both code and creativity.</p>
+        <p>I started in UX/UI design, drawn to clean visuals and storytelling. Curiosity about user behaviour led me to data analytics and development — asking “why” and “how” with every click.</p>
+        <p>I now explore where design meets tech: from intuitive mobile apps to data‑driven dashboards. My goal is simple — craft experiences that are useful, usable, and beautiful.</p>
+<p>Design, for me, is more than a skill — it’s a way of thinking, feeling, and connecting. And I’m always excited to keep learning, making, and sharing along the way.
+</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SKILLS ===== -->
+  <section id="skills">
+    <h2><i class="fas fa-tools"></i> Skills</h2>
+    <div class="skills-grid">
+      <div class="card">
+        <h3><i class="fas fa-code"></i> Technical Skills</h3>
+        <ul class="skills-list"><li>C</li><li>Java</li><li>Python</li><li>SQL</li></ul>
+      </div>
+      <div class="card">
+        <h3><i class="fas fa-chart-bar"></i> Data Analyst</h3>
+        <ul class="skills-list"><li>Excel</li><li>Tableau</li><li>Power BI</li></ul>
+      </div>
+      <div class="card">
+        <h3><i class="fas fa-globe"></i> Web Technologies</h3>
+        <ul class="skills-list"><li>HTML5</li><li>CSS3</li></ul>
+      </div>
+      <div class="card">
+        <h3><i class="fas fa-pencil-ruler"></i> UI / UX Designing</h3>
+        <ul class="skills-list">  <li>Interaction Design</li>
+        <li>Visual Design</li>
+        
+        <li>High‑Fidelity Mockups</li>
+        <li>Ux Research</li>
+        <
+        <li>Figma</li>
+        <li>Adobe XD</li>
+        <li>Miro</li>
+        <li>Google Analytics</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EXPERIENCE ===== -->
+  <section id="experience">
+    <h2><i class="fas fa-briefcase"></i> Experience</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <h3><i class="fas fa-laptop-code"></i> Junior Java Full‑Stack Trainee – TataSTRIVE</h3>
+        <small>2025</small>
+        <p>Highly motivated and detail-oriented Java Full Stack Development Trainee with hands-on experience in developing 
+scalable, efficient, and innovative web applications. Strong understanding of database management systems and proficient in SQL. Excellent problem-solving skills, 
+teamwork, and communication</p>
+      </div>
+      <div class="timeline-item">
+        <h3><i class="fas fa-database"></i> Data Analytics Intern – Coincent</h3>
+        <small>2023</small><p>Collected, cleaned, and analyzed data sets using Excel, SQL, Python, and Tableau, improving data accuracy. Assisted in data modeling, statistical analysis, report generation, and presentation of findings.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROJECTS ===== -->
+  <section id="projects">
+    <h2><i class="fas fa-project-diagram"></i> Projects</h2>
+    <div class="grid" class="grid">
+      <div class="project-card"><h3><i class="fas fa-chart-line"></i> Sales Data Analysis</h3> <p>Extracted, cleaned, and analyzed online store transaction data, transforming insights into compelling reports and Tableau dashboards.</p></div>
+      <div class="project-card"><h3><i class="fas fa-balance-scale"></i> Recession Analysis & Reporting</h3> <p>Applied statistical techniques and data visualization to evaluate recession indicators, delivering actionable insights through detailed reports.</p></div>
+      <div class="project-card"><h3><i class="fas fa-tint"></i> Online Blood Bank</h3><p>Developed a responsive website to connect donors with recipients, ensuring quick and efficient blood donation services at any time.</p></div>
+      <div class="project-card"><h3><i class="fas fa-bell"></i> Bujji – AI Reminder App</h3><p>Conversational, multimedia reminder app prototype built in Figma.</p> <p>Designed an AI‑powered reminder app offering conversational interactions, multimedia reminders, and personalized organization.</p></div>
+      <div class="project-card"><h3><i class="fas fa-train"></i> IRCTC App Redesign</h3> <p>Redesigned the IRCTC train app interface, prioritizing essentials and streamlining navigation for a cleaner, user‑friendly experience.</p></div>
+    </div>
+  </section>
+
+  <!-- ===== EDUCATION ===== -->
+  <section id="education">
+    <h2><i class="fas fa-graduation-cap"></i> Education</h2>
+    <div class="card">
+      <p><strong>B.Tech – Computer Science & Engineering</strong><br>Sree Venkateswara College of Engineering, Nellore (2023)<br>CGPA: 8.4</p>
+    </div>
+  </section>
+
+  <!-- ===== ACHIEVEMENTS ===== -->
+  <section id="achievements">
+    <h2><i class="fas fa-award"></i> Achievements & Certifications</h2>
+    <div class="card">
+      <ul class="skills-list" style="flex-wrap: wrap;">
+        <li>Pratibha Award – SSC 2017 from honorable Chief Minister of Andhra Pradesh at that time.</li>
+        <li>Workshop – Completion of workshop in Exploratory Data Analytics using Python</li>
+        <li>Udemy - Got certification in Python Bootcamp From Zero to Hero in Python and SQL</li>
+ <li>Tata Strive - Got certification in Junior Java Full Stack Developer Internship</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section id="contact">
+    <h2><i class="fas fa-paper-plane"></i> Contact</h2>
+    <p>If you’d like to collaborate or just say hello, reach out via any link below.</p>
+    <div class="contact-links">
+      <a href="mailto:ruchithach518@gmail.com"><i class="fas fa-envelope"></i> Email Me</a>
+      <a href="tel:+919492230058"><i class="fas fa-phone"></i>+91 9492230058</a>
+      <a href="https://www.linkedin.com/in/ruchitha-chegudi-a584391b7" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+      <a href="https://drive.google.com/uc?export=download&id=1HOIT_XyRAYLKp6CTaO88YiwmP1iA9-yU" target="_blank"><i class="fas fa-file-download"></i> Resume</a>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    © <span id="year"></span> Ruchitha Chegudi. All rights reserved.
+  </footer>
+
+  <script>
+    // Active nav highlight
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('nav a');
+    function activateNav() {
+      const y = window.scrollY + 150;
+      sections.forEach(sec => {
+        if (y >= sec.offsetTop && y < sec.offsetTop + sec.offsetHeight) {
+          navLinks.forEach(l => l.classList.remove('active'));
+          document.querySelector(`nav a[href*="${sec.id}"]`).classList.add('active');
+        }
+      });
+    }
+    window.addEventListener('scroll', activateNav);
+
+    // Theme toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    themeToggle.addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+      themeToggle.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+    });
+
+    // Mobile menu toggle
+    const menuToggleBtn = document.getElementById('menu-toggle');
+    const mobileNav = document.getElementById('mobile-nav');
+    menuToggleBtn.addEventListener('click', () => {
+      mobileNav.classList.toggle('show');
+    });
+    mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileNav.classList.remove('show')));
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
