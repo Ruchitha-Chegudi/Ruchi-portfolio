@@ -56,54 +56,32 @@
     nav a:hover::after, nav a.active::after { width: 100%; }
     #theme-toggle, #menu-toggle { background: none; border: none; font-size: 1.3rem; color: var(--fg); cursor: pointer; }
     #menu-toggle { display: none; }
-
-    /* ---------- MOBILE NAV ---------- */
     .mobile-nav { display: none; flex-direction: column; background: var(--card); padding: 1rem 1.25rem; gap: 1rem; border-radius: 0.75rem; margin: 0.75rem; }
     .mobile-nav a { color: var(--fg); font-weight: 600; }
-
-    /* ---------- SECTIONS ---------- */
     section { padding: 130px 1.25rem 120px; max-width: 1100px; margin: auto; }
     h2 { font-size: 2rem; margin-bottom: 1.25rem; color: var(--accent); }
-
-    /* ---------- HERO ---------- */
     #hero { display: flex; flex-direction: column; align-items: center; text-align: center; min-height: 100vh; justify-content: center; }
     #hero h1 { font-size: 3.1rem; }
     #hero p { max-width: 640px; margin-top: 1rem; font-size: 1.2rem; }
     .btn { background: var(--btn); color: #fff; padding: 0.85rem 1.7rem; border-radius: 0.6rem; font-weight: 600; display: inline-block; margin-top: 2rem; text-decoration: none; }
     .btn:hover { filter: brightness(1.05); }
-
-    /* ---------- ABOUT ---------- */
     .about-content { display: flex; gap: 2.5rem; align-items: center; flex-wrap: wrap; }
     .about-content img { width: 320px; flex-shrink: 0; border-radius: 1rem; box-shadow: 0 4px 14px rgba(0,0,0,0.08); object-fit: cover; }
     .about-content p { margin-bottom: 0.9rem; }
-
-    /* ---------- CARDS ---------- */
     .card { background: var(--card); padding: 1.5rem; border-radius: 0.75rem; box-shadow: 0 2px 6px rgba(0,0,0,0.04); }
-
-    /* ---------- SKILLS ---------- */
     .skills-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(240px,1fr)); gap: 1.5rem; }
     .skills-list { list-style: none; display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 0.8rem; }
     .skills-list li { background: var(--accent); color: #fff; padding: 0.4rem 0.85rem; border-radius: 0.5rem; font-size: 0.83rem; }
-
-    /* ---------- PROJECTS ---------- */
     #projects .grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); gap: 2rem; }
     .project-card { background: var(--card); padding: 1.5rem; border-radius: 0.75rem; box-shadow: 0 2px 6px rgba(0,0,0,0.05); display: flex; flex-direction: column; gap: 0.8rem; }
     .project-card h3 { display: flex; align-items: center; gap: 0.5rem; font-size: 1.1rem; margin: 0; }
-
-    /* ---------- TIMELINE ---------- */
     .timeline { border-left: 3px solid var(--accent); padding-left: 1.75rem; }
     .timeline-item { position: relative; margin-bottom: 2rem; padding-left: 1.75rem; padding-right: 2.75rem;}
     .timeline-item::before { content: ""; position: absolute; left: -0.75rem; top: 0.35rem; width: 0.9rem; height: 0.9rem; background: var(--accent); border-radius: 50%; }
-
-    /* ---------- CONTACT ---------- */
     .contact-links { display: grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap: 1.25rem; margin-top: 2rem; }
     .contact-links a { background: var(--card); padding: 0.9rem 1.1rem; border-radius: 0.6rem; text-decoration: none; color: var(--fg); font-weight: 600; display: flex; align-items: center; gap: 0.65rem; }
     .contact-links i { color: var(--btn); font-size: 1.35rem; }
-
-    /* ---------- FOOTER ---------- */
     footer { text-align: center; padding: 2.5rem 1rem; font-size: 0.9rem; }
-
-    /* ---------- RESPONSIVE ---------- */
     @media (max-width: 768px) {
       nav ul { display: none; }
       #menu-toggle { display: block; }
@@ -140,15 +118,11 @@
       <a href="#contact">Contact</a>
     </div>
   </header>
-
-  <!-- ===== HERO ===== -->
   <section id="hero">
     <h1>Hi, I'm <span style="color:var(--accent);">Ruchitha Chegudi</span></h1>
   <p>Data Analyst &amp; UI/UX Designer from Hyderabad, passionate about turning data and design into impactful solutions.</p>
     <a href="#projects" class="btn"><i class="fas fa-rocket"></i> View My Work</a>
   </section>
-
-  <!-- ===== ABOUT ===== -->
   <section id="about">
     <h2><i class="fas fa-user"></i> About Me</h2>
     <div class="about-content card">
@@ -162,8 +136,6 @@
       </div>
     </div>
   </section>
-
-  <!-- ===== SKILLS ===== -->
   <section id="skills">
     <h2><i class="fas fa-tools"></i> Skills</h2>
     <div class="skills-grid">
@@ -186,7 +158,6 @@
         
         <li>High‑Fidelity Mockups</li>
         <li>Ux Research</li>
-        <
         <li>Figma</li>
         <li>Adobe XD</li>
         <li>Miro</li>
@@ -194,8 +165,6 @@
       </div>
     </div>
   </section>
-
-  <!-- ===== EXPERIENCE ===== -->
   <section id="experience">
     <h2><i class="fas fa-briefcase"></i> Experience</h2>
     <div class="timeline">
@@ -212,8 +181,6 @@ teamwork, and communication</p>
       </div>
     </div>
   </section>
-
-  <!-- ===== PROJECTS ===== -->
   <section id="projects">
     <h2><i class="fas fa-project-diagram"></i> Projects</h2>
     <div class="grid" class="grid">
@@ -224,29 +191,23 @@ teamwork, and communication</p>
       <div class="project-card"><h3><i class="fas fa-train"></i> IRCTC App Redesign</h3> <p>Redesigned the IRCTC train app interface, prioritizing essentials and streamlining navigation for a cleaner, user‑friendly experience.</p></div>
     </div>
   </section>
-
-  <!-- ===== EDUCATION ===== -->
   <section id="education">
     <h2><i class="fas fa-graduation-cap"></i> Education</h2>
     <div class="card">
       <p><strong>B.Tech – Computer Science & Engineering</strong><br>Sree Venkateswara College of Engineering, Nellore (2023)<br>CGPA: 8.4</p>
     </div>
   </section>
-
-  <!-- ===== ACHIEVEMENTS ===== -->
   <section id="achievements">
     <h2><i class="fas fa-award"></i> Achievements & Certifications</h2>
     <div class="card">
       <ul class="skills-list" style="flex-wrap: wrap;">
-        <li>Pratibha Award – SSC 2017 from honorable Chief Minister of Andhra Pradesh at that time.</li>
-        <li>Workshop – Completion of workshop in Exploratory Data Analytics using Python</li>
-        <li>Udemy - Got certification in Python Bootcamp From Zero to Hero in Python and SQL</li>
- <li>Tata Strive - Got certification in Junior Java Full Stack Developer Internship</li>
+        <li>Pratibha Award – SSC 2017 from honorable Chief Minister of Andhra Pradesh at that time.</li><br>
+        <li>Workshop – Completion of workshop in Exploratory Data Analytics using Python</li><br>
+        <li>Udemy - Got certification in Python Bootcamp From Zero to Hero in Python and SQL</li><br>
+ <li>Tata Strive - Got certification in Junior Java Full Stack Developer Internship</li><br>
       </ul>
     </div>
   </section>
-
-  <!-- ===== CONTACT ===== -->
   <section id="contact">
     <h2><i class="fas fa-paper-plane"></i> Contact</h2>
     <p>If you’d like to collaborate or just say hello, reach out via any link below.</p>
@@ -258,13 +219,15 @@ teamwork, and communication</p>
     </div>
   </section>
 
-  <!-- ===== FOOTER ===== -->
+  <div id="hero">
+    <h4><span style="color:var(--accent);">Designer + Tech Enthusiast.<br><br> I turn ideas into simple, meaningful experiences.</span></h4>
+   
+  </div>
   <footer>
     © <span id="year"></span> Ruchitha Chegudi. All rights reserved.
   </footer>
 
   <script>
-    // Active nav highlight
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('nav a');
     function activateNav() {
@@ -277,15 +240,11 @@ teamwork, and communication</p>
       });
     }
     window.addEventListener('scroll', activateNav);
-
-    // Theme toggle
     const themeToggle = document.getElementById('theme-toggle');
     themeToggle.addEventListener('click', () => {
       document.documentElement.classList.toggle('dark');
       themeToggle.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
     });
-
-    // Mobile menu toggle
     const menuToggleBtn = document.getElementById('menu-toggle');
     const mobileNav = document.getElementById('mobile-nav');
     menuToggleBtn.addEventListener('click', () => {
