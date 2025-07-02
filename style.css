@@ -12,6 +12,9 @@
       --btn: #22c55e;
       --card: #1e293b;
     }
+.mobile-nav.show {
+  display: flex;
+}
 /* ---------- MOBILE NAV ---------- */
 .mobile-nav {
   display: none;
