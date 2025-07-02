@@ -23,3 +23,10 @@
     mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileNav.classList.remove('show')));
 
     document.getElementById('year').textContent = new Date().getFullYear();
+
+const menuToggleBtn = document.getElementById('menu-toggle');
+const mobileNav = document.getElementById('mobile-nav');
+
+menuToggleBtn.addEventListener('click', () => {
+  mobileNav.classList.toggle('show');
+});
